@@ -18,7 +18,7 @@ Statický web (HTML + CSS + JS), bez build kroku a bez externích služeb: fonty
 Cover je z banneru o šířce 1500 px. S původním souborem ve vyšším rozlišení bude web ostřejší: stačí přepsat `cover-*.webp`. Její fotka je na webu jen jednou, v úvodu.
 
 ## Co upravit
-- Texty služeb: `index.html`, sekce `#sluzby`
+- Texty jsou podle letáku (Od bolesti k rovnováze, Pomáhám při, služby, Malé kroky k velké změně). Najdete je v `index.html`: sekce `#tcm`, `#sluzby`, `#kontakt`
 - Texty k elementům: `index.html`, sekce `#elementy`
 - Chybí: otevírací doba, ceník, PSČ (PSČ doplnit do JSON-LD v `index.html`)
 

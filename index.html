@@ -2,10 +2,11 @@
 <html lang="cs">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Tradiční čínská medicína Petřvald | Adriana Chylová</title>
   <meta name="description" content="Tradiční čínská medicína v Petřvaldu: tuina, akupresura a baňkování. Od bolesti k rovnováze. Adriana Chylová, Šenovská 2249, tel. 601 297 499.">
-  <meta name="theme-color" content="#08123a">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#07103a">
   <link rel="canonical" href="https://adritcm.cz/">
   <link rel="icon" href="favicon.ico" sizes="48x48">
   <link rel="icon" href="img/icon-192.png" type="image/png" sizes="192x192">
@@ -21,9 +22,9 @@
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
 
-  <link rel="preload" href="fonts/playwrite-cz-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/cinzel-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="img/portrait.webp" as="image" media="(min-width: 861px)">
+  <link rel="preload" href="fonts/source-sans-3-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" as="image" imagesrcset="img/cover-900.webp 900w, img/cover-1500.webp 1500w, img/cover-2400.webp 2400w" imagesizes="min(100vw, 1920px)" fetchpriority="high">
   <link rel="stylesheet" href="css/style.css">
 
   <script type="application/ld+json">
@@ -57,170 +58,403 @@
   </script>
 </head>
 <body>
+  <!-- shared SVG defs -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-    <symbol id="lotus" viewBox="0 0 100 70">
-      <g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round">
-        <path d="M50 6C41 22 41 40 50 56C59 40 59 22 50 6Z"/>
-        <path d="M50 56C34 53 23 42 19 26C34 28 45 38 50 56Z"/>
-        <path d="M50 56C66 53 77 42 81 26C66 28 55 38 50 56Z"/>
-        <path d="M50 56C27 59 12 52 5 40C22 38 40 43 50 56Z"/>
-        <path d="M50 56C73 59 88 52 95 40C78 38 60 43 50 56Z"/>
-        <path d="M30 63H70"/>
-      </g>
-    </symbol>
+    <defs>
+      <linearGradient id="gGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff6dc"/><stop offset=".5" stop-color="#e6c883"/><stop offset="1" stop-color="#b88b3e"/></linearGradient>
+      <linearGradient id="gViolet" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8a70ff"/><stop offset="1" stop-color="#ee70cb"/></linearGradient>
+      <linearGradient id="gWave" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#f1dfb4" stop-opacity="0"/><stop offset=".22" stop-color="#f1dfb4" stop-opacity=".55"/><stop offset=".6" stop-color="#fff6dc"/><stop offset="1" stop-color="#f1dfb4" stop-opacity="0"/></linearGradient>
+      <radialGradient id="gHalo"><stop offset="0" stop-color="#8a70ff" stop-opacity=".42"/><stop offset=".6" stop-color="#2a4fc4" stop-opacity=".12"/><stop offset="1" stop-color="#2a4fc4" stop-opacity="0"/></radialGradient>
+      <radialGradient id="gAmber"><stop offset="0" stop-color="#ffd27a" stop-opacity=".95"/><stop offset=".55" stop-color="#ff8a4a" stop-opacity=".35"/><stop offset="1" stop-color="#ff8a4a" stop-opacity="0"/></radialGradient>
+      <linearGradient id="gSkin" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ee70cb" stop-opacity=".28"/><stop offset="1" stop-color="#8a70ff" stop-opacity="0"/></linearGradient>
+      <filter id="fGlow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+
+      <symbol id="lotus" viewBox="0 0 100 70">
+        <g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round">
+          <path d="M50 6C41 22 41 40 50 56C59 40 59 22 50 6Z"/>
+          <path d="M50 56C34 53 23 42 19 26C34 28 45 38 50 56Z"/>
+          <path d="M50 56C66 53 77 42 81 26C66 28 55 38 50 56Z"/>
+          <path d="M50 56C27 59 12 52 5 40C22 38 40 43 50 56Z"/>
+          <path d="M50 56C73 59 88 52 95 40C78 38 60 43 50 56Z"/>
+          <path d="M30 63H70"/>
+        </g>
+      </symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path d="M22 6l-10 7L2 6"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    </defs>
   </svg>
 
   <a class="skip" href="#obsah">Přeskočit na obsah</a>
 
+  <!-- NAV -->
   <header class="nav" id="nav">
-    <a class="nav__brand" href="#top" aria-label="Adriana Chylová – úvod">
-      <img src="img/logo-240.webp" alt="" width="44" height="44">
-      <span>Adriana Chylová</span>
-    </a>
-    <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">
-      <span class="sr">Menu</span><i aria-hidden="true"></i>
-    </button>
-    <nav class="nav__menu" id="navMenu" aria-label="Hlavní">
-      <a href="#sluzby">Služby</a>
-      <a href="#elementy">Pět elementů</a>
-      <a href="#kontakt">Kontakt</a>
-      <a class="btn btn--small" href="tel:+420601297499">601 297 499</a>
-    </nav>
+    <div class="nav__bar">
+      <a class="nav__brand" href="#top" aria-label="Adriana Chylová – nahoru">
+        <img src="img/logo-240.webp" alt="" width="40" height="40">
+        <span class="nav__name">Adriana Chylová</span>
+      </a>
+      <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">
+        <span class="sr">Menu</span><i aria-hidden="true"></i>
+      </button>
+      <nav class="nav__menu" id="navMenu" aria-label="Hlavní">
+        <a href="#tcm">O&nbsp;TČM</a>
+        <a href="#sluzby">Služby</a>
+        <a href="#elementy">Pět elementů</a>
+        <a href="#kontakt">Kontakt</a>
+        <a class="btn btn--small" href="tel:+420601297499"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>601 297 499</a>
+      </nav>
+    </div>
+    <span class="nav__progress" id="navProgress" aria-hidden="true"></span>
   </header>
 
   <main id="obsah">
-    <!-- HERO -->
-    <section class="hero" id="top">
-      <div class="hero__bg" aria-hidden="true"><div class="hero__flower"></div></div>
-      <img class="hero__photo" src="img/portrait.webp" alt="Adriana Chylová" width="1200" height="1116" fetchpriority="high">
-      <div class="sparkles" aria-hidden="true"></div>
-      <div class="hero__inner">
-        <div class="hero__text">
-          <p class="eyebrow">Petřvald · Adriana Chylová</p>
-          <h1>Tradiční čínská medicína</h1>
-          <div class="divider" aria-hidden="true"><svg><use href="#lotus"/></svg></div>
-          <p class="hero__motto">Od bolesti k rovnováze</p>
-          <p class="hero__tags">Tuina <i aria-hidden="true">•</i> akupresura <i aria-hidden="true">•</i> baňkování</p>
-          <div class="hero__cta">
-            <a class="btn" href="tel:+420601297499">Objednat se telefonicky</a>
-            <a class="btn btn--ghost" href="#kontakt">Kde mě najdete</a>
-          </div>
+
+    <!-- ============ COVER + PROFILE (same start as the Facebook page) ============ -->
+    <section class="cover" id="top">
+      <div class="cover__stage" id="coverStage">
+        <h1 class="cover__h1">
+          <span class="sr">Tradiční čínská medicína Petřvald – od bolesti k&nbsp;rovnováze. Tuina, akupresura, baňkování.</span>
+          <img class="cover__img"
+               src="img/cover-1500.webp"
+               srcset="img/cover-900.webp 900w, img/cover-1500.webp 1500w, img/cover-2400.webp 2400w"
+               sizes="min(100vw, 1920px)"
+               width="1500" height="558" fetchpriority="high" decoding="async"
+               alt="Adriana Chylová s lotosem a květem života, úvodní obrázek webu www.adritcm.cz">
+        </h1>
+        <canvas class="cover__fx" id="coverFx" aria-hidden="true"></canvas>
+        <span class="cover__shine" aria-hidden="true"></span>
+      </div>
+
+      <div class="profile">
+        <div class="avatar">
+          <img src="img/logo-480.webp" alt="Logo TCM – květ života a lotos" width="480" height="480" decoding="async">
+        </div>
+
+        <div class="profile__main">
+          <p class="profile__name" id="profileName">Adriana Chylová</p>
+          <p class="profile__sub">Tradiční čínská medicína · Petřvald</p>
+          <ul class="chips" aria-label="Služby">
+            <li><a href="#sluzby" data-svc-link="tuina"><svg aria-hidden="true"><use href="#lotus"/></svg>Tuina</a></li>
+            <li><a href="#sluzby" data-svc-link="akupresura"><svg aria-hidden="true"><use href="#lotus"/></svg>Akupresura</a></li>
+            <li><a href="#sluzby" data-svc-link="banky"><svg aria-hidden="true"><use href="#lotus"/></svg>Baňkování</a></li>
+          </ul>
+        </div>
+
+        <div class="profile__actions">
+          <a class="btn" href="tel:+420601297499"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg><span class="sr">Zavolat </span>601&nbsp;297&nbsp;499</a>
+          <a class="btn btn--glass" href="mailto:stastnoucestu@seznam.cz"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg>E-mail</a>
+          <a class="btn btn--glass btn--round" href="#kontakt" aria-label="Kde mě najdete"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></a>
         </div>
       </div>
-      <a class="hero__scroll" href="#sluzby" aria-label="Posunout na služby"><i aria-hidden="true"></i></a>
     </section>
 
-    <!-- SLUŽBY -->
+    <svg class="wave" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true">
+      <path pathLength="1" d="M0 104C180 62 360 124 560 88S940 26 1160 54S1380 98 1440 72" stroke="url(#gWave)" stroke-width="2.4"/>
+      <path pathLength="1" d="M0 116C220 84 400 134 620 100S980 44 1200 72S1400 108 1440 94" stroke="url(#gWave)" stroke-width="1.4" opacity=".7"/>
+      <path pathLength="1" d="M0 92C200 44 380 112 600 72S960 12 1180 42S1400 86 1440 62" stroke="url(#gWave)" stroke-width=".9" opacity=".55"/>
+    </svg>
+
+    <!-- ============ O TČM ============ -->
+    <section class="section" id="tcm">
+      <div class="deco-moon" aria-hidden="true"></div>
+      <div class="wrap intro">
+        <div class="intro__text">
+          <p class="eyebrow reveal">Tradiční čínská medicína</p>
+          <h2 class="title split">Od bolesti k&nbsp;rovnováze</h2>
+          <div class="divider divider--left reveal" aria-hidden="true"><svg><use href="#lotus"/></svg></div>
+          <p class="lead reveal">Tradiční čínská medicína se dívá na člověka jako na celek. Bolest, únava nebo napětí nejsou oddělené potíže, ale signály, že se v&nbsp;těle něco vychýlilo z&nbsp;rovnováhy.</p>
+          <p class="body reveal">V&nbsp;Petřvaldu se věnuji tuině, akupresuře a&nbsp;baňkování. Cílem není jen utišit příznak, ale pomoci tělu najít klid a&nbsp;rovnováhu, kterou má v&nbsp;sobě přirozeně.</p>
+          <p class="script reveal">Těším se na vás.</p>
+        </div>
+
+        <figure class="intro__photo reveal">
+          <div class="intro__glow" aria-hidden="true"></div>
+          <div class="intro__frame">
+            <img src="img/portrait.webp" alt="Adriana Chylová s lotosem" width="1156" height="1116" loading="lazy" decoding="async" data-parallax="0.06">
+          </div>
+        </figure>
+      </div>
+
+      <div class="wrap pillars">
+        <article class="pillar glass reveal">
+          <span class="pillar__char" lang="zh-Hans" aria-hidden="true">气</span>
+          <h3>Čchi</h3>
+          <p>Životní energie, která proudí drahami těla. Když proudí volně, cítíme se dobře.</p>
+        </article>
+        <article class="pillar glass reveal">
+          <span class="pillar__char" lang="zh-Hans" aria-hidden="true">阴阳</span>
+          <h3>Jin a&nbsp;jang</h3>
+          <p>Dvě protikladné a&nbsp;přitom spolupracující síly: klid a&nbsp;pohyb, chlad a&nbsp;teplo, odpočinek a&nbsp;činnost.</p>
+        </article>
+        <a class="pillar pillar--link glass reveal" href="#elementy">
+          <span class="pillar__char" lang="zh-Hans" aria-hidden="true">五行</span>
+          <h3>Pět elementů</h3>
+          <p>Dřevo, oheň, země, kov a&nbsp;voda. Cyklus, ve kterém TČM čte souvislosti v&nbsp;těle.</p>
+          <span class="pillar__more">Prozkoumat <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ SLUŽBY ============ -->
     <section class="section" id="sluzby">
+      <div class="deco-bamboo" aria-hidden="true"><img src="img/bamboo.svg" alt="" width="520" height="640" loading="lazy" data-parallax="-0.04"></div>
       <div class="wrap">
-        <header class="section__head reveal">
-          <p class="eyebrow">Co nabízím</p>
-          <h2>Služby</h2>
-          <div class="divider divider--left" aria-hidden="true"><svg><use href="#lotus"/></svg></div>
-          <p class="lead">Staletími prověřené metody, které se dívají na člověka jako na celek: tělo, dech i emoce.</p>
+        <header class="section__head">
+          <p class="eyebrow reveal">Co nabízím</p>
+          <h2 class="title split">Služby</h2>
+          <div class="divider divider--left reveal" aria-hidden="true"><svg><use href="#lotus"/></svg></div>
+          <p class="lead reveal">Tři cesty, jak uvolnit tělo a&nbsp;vrátit mu rovnováhu.</p>
         </header>
 
-        <ul class="cards">
-          <li class="card reveal">
-            <span class="card__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 14c2-4 4-6 6-6s2 2 4 2 4-3 6-4"/><path d="M4 19c3-3 6-4 9-4s5 1 7 3"/><circle cx="19" cy="5.500" r="1.200"/></svg></span>
-            <h3>Tuina</h3>
-            <p>Čínská terapeutická masáž. Tlaky, hmaty a protahování uvolňují napětí v těle a podporují jeho přirozenou rovnováhu.</p>
-          </li>
-          <li class="card reveal">
-            <span class="card__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.200"/><circle cx="12" cy="12" r="5.500"/><circle cx="12" cy="12" r="9"/></svg></span>
-            <h3>Akupresura</h3>
-            <p>Tlak prsty na akupunkturní body, bez jehel. Šetrná metoda, která uvolňuje napětí a pomáhá tělu načerpat sílu.</p>
-          </li>
-          <li class="card reveal">
-            <span class="card__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 9h14l-1 6a6 6 0 0 1-12 0z"/><path d="M8 5.500h8"/></svg></span>
-            <h3>Baňkování</h3>
-            <p>Přiložení skleněných baněk na kůži. Podtlak uvolňuje svalové napětí a prokrvuje tkáně.</p>
-          </li>
-        </ul>
+        <div class="svc reveal">
+          <div class="svc__tabs" role="tablist" aria-label="Služby" aria-orientation="vertical">
+            <button class="svc__tab is-active" role="tab" id="tab-tuina" aria-selected="true" aria-controls="panel-tuina" data-svc="tuina">
+              <span class="svc__name">Tuina</span>
+              <span class="svc__hint">Čínská terapeutická masáž</span>
+            </button>
+            <button class="svc__tab" role="tab" id="tab-akupresura" aria-selected="false" aria-controls="panel-akupresura" data-svc="akupresura" tabindex="-1">
+              <span class="svc__name">Akupresura</span>
+              <span class="svc__hint">Tlak na body, bez jehel</span>
+            </button>
+            <button class="svc__tab" role="tab" id="tab-banky" aria-selected="false" aria-controls="panel-banky" data-svc="banky" tabindex="-1">
+              <span class="svc__name">Baňkování</span>
+              <span class="svc__hint">Podtlak, který uvolňuje</span>
+            </button>
+          </div>
+
+          <div class="svc__stage glass">
+            <div class="svc__panel is-active" role="tabpanel" id="panel-tuina" aria-labelledby="tab-tuina" data-mark="推拿">
+              <div class="svc__art">
+                <svg class="art" viewBox="0 0 520 380" role="img" aria-label="Plynoucí linie připomínající tok energie drahami těla">
+                  <circle cx="260" cy="190" r="170" fill="url(#gHalo)"/>
+                  <circle cx="260" cy="190" r="138" fill="none" stroke="rgba(241,223,180,.22)" stroke-width="1"/>
+                  <circle cx="260" cy="190" r="156" fill="none" stroke="rgba(241,223,180,.2)" stroke-width="3" stroke-dasharray="1 9"/>
+                  <g fill="none" stroke-linecap="round">
+                    <path id="tuinaPath" d="M10 262C110 126 196 338 296 204S452 84 510 152" stroke="rgba(241,223,180,.22)" stroke-width="1.4"/>
+                    <path class="pulse" pathLength="1000" d="M10 262C110 126 196 338 296 204S452 84 510 152" stroke="url(#gGold)" stroke-width="3"/>
+                    <path d="M10 214C124 308 214 98 314 232S444 304 510 214" stroke="rgba(138,112,255,.3)" stroke-width="1.4"/>
+                    <path class="pulse pulse--2" pathLength="1000" d="M10 214C124 308 214 98 314 232S444 304 510 214" stroke="url(#gViolet)" stroke-width="2.6"/>
+                    <path d="M10 168C112 192 222 56 322 170S434 244 510 132" stroke="rgba(255,255,255,.16)" stroke-width="1"/>
+                    <path class="pulse pulse--3" pathLength="1000" d="M10 168C112 192 222 56 322 170S434 244 510 132" stroke="rgba(255,255,255,.8)" stroke-width="1.6"/>
+                  </g>
+                  <circle r="5.5" fill="#fff6dc" filter="url(#fGlow)"><animateMotion dur="9s" repeatCount="indefinite"><mpath href="#tuinaPath"/></animateMotion></circle>
+                </svg>
+              </div>
+              <div class="svc__txt">
+                <h3>Tuina <span class="svc__zh" lang="zh-Hans" aria-hidden="true">推拿</span></h3>
+                <p>Tuina je čínská terapeutická masáž. Na rozdíl od běžné relaxační masáže pracuje cíleně s&nbsp;tělesnými drahami a&nbsp;body. Střídá tlaky, hnětení, roztírání a&nbsp;protahování, uvolňuje napjaté svaly a&nbsp;pomáhá tělu najít rovnováhu.</p>
+                <ul class="tags"><li>Tlaky</li><li>Hnětení</li><li>Protahování</li></ul>
+              </div>
+            </div>
+
+            <div class="svc__panel" role="tabpanel" id="panel-akupresura" aria-labelledby="tab-akupresura" data-mark="穴位" hidden>
+              <div class="svc__art">
+                <svg class="art" viewBox="0 0 520 380" role="img" aria-label="Kruhy, které se šíří z akupunkturního bodu">
+                  <circle cx="260" cy="190" r="170" fill="url(#gHalo)"/>
+                  <circle cx="260" cy="190" r="138" fill="none" stroke="rgba(241,223,180,.22)" stroke-width="1"/>
+                  <circle cx="260" cy="190" r="156" fill="none" stroke="rgba(241,223,180,.2)" stroke-width="3" stroke-dasharray="1 9"/>
+                  <g fill="none" stroke="url(#gGold)" stroke-width="1.6">
+                    <circle cx="260" cy="190" r="10"><animate attributeName="r" from="10" to="165" dur="4.8s" repeatCount="indefinite"/><animate attributeName="opacity" from=".9" to="0" dur="4.8s" repeatCount="indefinite"/></circle>
+                    <circle cx="260" cy="190" r="10"><animate attributeName="r" from="10" to="165" dur="4.8s" begin="1.2s" repeatCount="indefinite"/><animate attributeName="opacity" from=".9" to="0" dur="4.8s" begin="1.2s" repeatCount="indefinite"/></circle>
+                    <circle cx="260" cy="190" r="10"><animate attributeName="r" from="10" to="165" dur="4.8s" begin="2.4s" repeatCount="indefinite"/><animate attributeName="opacity" from=".9" to="0" dur="4.8s" begin="2.4s" repeatCount="indefinite"/></circle>
+                    <circle cx="260" cy="190" r="10"><animate attributeName="r" from="10" to="165" dur="4.8s" begin="3.6s" repeatCount="indefinite"/><animate attributeName="opacity" from=".9" to="0" dur="4.8s" begin="3.6s" repeatCount="indefinite"/></circle>
+                  </g>
+                  <path d="M-10 270C90 210 170 150 260 190S420 270 530 140" stroke="rgba(241,223,180,.6)" stroke-width="1.4" fill="none"/>
+                  <g fill="#fff6dc"><circle cx="89" cy="211" r="3.4"/><circle cx="181" cy="178" r="3.4"/><circle cx="362" cy="227" r="3.4"/><circle cx="468" cy="199" r="3.4"/></g>
+                  <circle cx="260" cy="190" r="9" fill="#fff6dc" filter="url(#fGlow)"/>
+                  <circle cx="260" cy="190" r="3.4" fill="#fff"/>
+                </svg>
+              </div>
+              <div class="svc__txt">
+                <h3>Akupresura <span class="svc__zh" lang="zh-Hans" aria-hidden="true">穴位</span></h3>
+                <p>Akupresura vychází ze stejných principů jako akupunktura, ale obejde se bez jehel. Prsty nebo palci se vyvíjí pevný, přesně mířený tlak na vybrané body. Je šetrná a&nbsp;často se kombinuje s&nbsp;dalšími metodami.</p>
+                <ul class="tags"><li>Akupunkturní body</li><li>Bez jehel</li><li>Šetrná</li></ul>
+              </div>
+            </div>
+
+            <div class="svc__panel" role="tabpanel" id="panel-banky" aria-labelledby="tab-banky" data-mark="拔罐" hidden>
+              <div class="svc__art">
+                <svg class="art" viewBox="0 0 520 380" role="img" aria-label="Skleněná baňka přisátá na kůži">
+                  <circle cx="260" cy="190" r="170" fill="url(#gHalo)"/>
+                  <circle cx="260" cy="190" r="138" fill="none" stroke="rgba(241,223,180,.22)" stroke-width="1"/>
+                  <circle cx="260" cy="190" r="156" fill="none" stroke="rgba(241,223,180,.2)" stroke-width="3" stroke-dasharray="1 9"/>
+                  <ellipse cx="260" cy="212" rx="88" ry="96" fill="url(#gAmber)"><animate attributeName="opacity" values=".5;1;.5" dur="4s" repeatCount="indefinite"/></ellipse>
+                  <path d="M168 302C168 178 206 96 260 96S352 178 352 302" fill="rgba(170,190,255,.07)" stroke="url(#gGold)" stroke-width="2.4"/>
+                  <path d="M190 280C192 192 214 132 246 112" stroke="rgba(255,255,255,.6)" stroke-width="3" stroke-linecap="round" fill="none"/>
+                  <rect x="156" y="298" width="208" height="10" rx="5" fill="url(#gGold)"/>
+                  <path fill="url(#gSkin)" d="M10 308H158C190 308 208 272 260 270S330 308 362 308H510V380H10Z">
+                    <animate attributeName="d" dur="4s" repeatCount="indefinite" values="M10 308H158C190 308 208 272 260 270S330 308 362 308H510V380H10Z;M10 308H158C190 308 208 252 260 250S330 308 362 308H510V380H10Z;M10 308H158C190 308 208 272 260 270S330 308 362 308H510V380H10Z"/>
+                  </path>
+                  <path fill="none" stroke="url(#gViolet)" stroke-width="3" stroke-linecap="round" d="M10 308H158C190 308 208 272 260 270S330 308 362 308H510">
+                    <animate attributeName="d" dur="4s" repeatCount="indefinite" values="M10 308H158C190 308 208 272 260 270S330 308 362 308H510;M10 308H158C190 308 208 252 260 250S330 308 362 308H510;M10 308H158C190 308 208 272 260 270S330 308 362 308H510"/>
+                  </path>
+                </svg>
+              </div>
+              <div class="svc__txt">
+                <h3>Baňkování <span class="svc__zh" lang="zh-Hans" aria-hidden="true">拔罐</span></h3>
+                <p>Při baňkování se na kůži přikládají skleněné baňky, ve kterých vzniká podtlak. Ten uvolňuje napjaté svaly a&nbsp;prokrvuje tkáň. Po ošetření mohou na kůži na pár dní zůstat kruhové stopy. Jsou normální součástí metody.</p>
+                <ul class="tags"><li>Skleněné baňky</li><li>Podtlak</li><li>Prokrvení</li></ul>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <div class="extras reveal">
-          <h3>Doplňkově</h3>
+          <h3 class="extras__title">Doplňkově</h3>
           <ul>
-            <li><strong>Moxování</strong> <span>prohřívání bodů pelyňkem</span></li>
-            <li><strong>Dietetika</strong> <span>výživa podle TČM</span></li>
-            <li><strong>Diagnostika</strong> <span>rozhovor, jazyk, pulz</span></li>
+            <li><strong>Moxování</strong><span>prohřívání bodů pelyňkem</span></li>
+            <li><strong>Dietetika</strong><span>výživa podle TČM</span></li>
+            <li><strong>Diagnostika</strong><span>rozhovor, jazyk a&nbsp;pulz</span></li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- PĚT ELEMENTŮ -->
-    <section class="section section--deep" id="elementy">
-      <div class="sparkles" aria-hidden="true"></div>
-      <div class="wrap elements">
-        <header class="section__head reveal">
-          <p class="eyebrow">Filozofie</p>
-          <h2>Pět elementů</h2>
-          <div class="divider divider--left" aria-hidden="true"><svg><use href="#lotus"/></svg></div>
-          <p class="lead">Dřevo, oheň, země, kov a voda se v nekonečném cyklu vzájemně podporují. Stejně tak fungují orgány a dráhy v našem těle.</p>
-          <div class="el-panel" id="elPanel" aria-live="polite">
-            <h3 id="elTitle">Vyberte element</h3>
-            <p id="elText">Klepněte na některý z elementů a dozvíte se, co k němu v tradiční čínské medicíně patří.</p>
-          </div>
-        </header>
+    <svg class="wave wave--flip" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true">
+      <path pathLength="1" d="M0 72C200 100 380 40 600 80S980 130 1200 96S1400 50 1440 68" stroke="url(#gWave)" stroke-width="2.2"/>
+      <path pathLength="1" d="M0 90C220 116 420 66 640 98S1000 140 1220 112S1400 78 1440 90" stroke="url(#gWave)" stroke-width="1.2" opacity=".6"/>
+    </svg>
 
-        <div class="wheel reveal" id="wheel">
-          <svg class="wheel__arrows" viewBox="0 0 100 100" aria-hidden="true">
-            <defs>
-              <marker id="ah" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-                <path d="M0 0L10 5L0 10z" fill="#a9b0ee"/>
-              </marker>
-            </defs>
-            <g fill="none" stroke="#a9b0ee" stroke-width=".6" stroke-opacity=".8" marker-end="url(#ah)" id="arcs"></g>
+    <!-- ============ PĚT ELEMENTŮ ============ -->
+    <section class="section five" id="elementy">
+      <div class="fx-host" id="fiveFxHost" aria-hidden="true"><canvas id="fiveFx"></canvas></div>
+      <div class="wrap five__grid">
+        <header class="section__head five__head">
+            <p class="eyebrow reveal">Filozofie</p>
+            <h2 class="title split">Pět elementů</h2>
+            <div class="divider divider--left reveal" aria-hidden="true"><svg><use href="#lotus"/></svg></div>
+            <p class="lead reveal">Dřevo, oheň, země, kov a&nbsp;voda se navzájem živí v&nbsp;nekonečném kruhu. Podle tradiční čínské medicíny jim odpovídají roční období, orgány i&nbsp;emoce.</p>
+          </header>
+
+        <div class="mandala reveal" id="mandala">
+          <svg class="mandala__svg" viewBox="0 0 600 600" aria-hidden="true">
+            <circle cx="300" cy="300" r="283" fill="none" stroke="rgba(241,223,180,.2)" stroke-width="1"/>
+            <circle cx="300" cy="300" r="276" fill="none" stroke="rgba(241,223,180,.5)" stroke-width="9" stroke-dasharray="1.2 22.9"/>
+            <circle cx="300" cy="300" r="150" fill="none" stroke="rgba(185,171,255,.18)" stroke-width="1" stroke-dasharray="2 8"/>
+            <path d="M300 90L423.4 469.9L100.3 235.1L499.7 235.1L176.6 469.9Z" fill="none" stroke="rgba(241,223,180,.13)" stroke-width="1" stroke-dasharray="3 7"/>
+            <circle class="ring-flow" cx="300" cy="300" r="210" fill="none" stroke="url(#gGold)" stroke-width="1.6" stroke-dasharray="2 12" stroke-linecap="round"/>
+            <circle cx="300" cy="300" r="210" fill="none" stroke="rgba(241,223,180,.28)" stroke-width="1"/>
+            <g fill="none" stroke="#f1dfb4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path transform="translate(423.4 130.1) rotate(36)" d="M-6 -7L5 0L-6 7"/>
+              <path transform="translate(499.7 364.9) rotate(108)" d="M-6 -7L5 0L-6 7"/>
+              <path transform="translate(300 510) rotate(180)" d="M-6 -7L5 0L-6 7"/>
+              <path transform="translate(100.3 364.9) rotate(252)" d="M-6 -7L5 0L-6 7"/>
+              <path transform="translate(176.6 130.1) rotate(324)" d="M-6 -7L5 0L-6 7"/>
+            </g>
           </svg>
-          <button class="node" style="--x:50%;--y:12%;--c:#e8602c" data-el="fire" aria-label="Oheň">
-            <svg viewBox="0 0 24 24"><path fill="#fff" d="M12 2c1 3.500 5.500 5.800 5.500 10.500a5.500 5.500 0 0 1-11 0c0-2.200 1-3.600 2.300-4.800.2 1.400 1 2.300 1.900 2.800C10.500 8.300 10.800 4.500 12 2z"/></svg>
-          </button>
-          <button class="node" style="--x:86%;--y:38.500%;--c:#f2b705" data-el="earth" aria-label="Země">
-            <svg viewBox="0 0 24 24"><path fill="#fff" d="M2 18c3-6 5-7 8-4 2-5 4-7 7-4 2 1.500 3.500 3 5 7v3H2z"/></svg>
-          </button>
-          <button class="node" style="--x:72.500%;--y:81%;--c:#8c8579" data-el="metal" aria-label="Kov">
-            <svg viewBox="0 0 24 24"><path fill="#fff" d="M12 2l8 3v6c0 5-3.500 9-8 11z"/><path fill="none" stroke="#fff" stroke-width="1.600" d="M12 2L4 5v6c0 5 3.500 9 8 11"/></svg>
-          </button>
-          <button class="node" style="--x:27.500%;--y:81%;--c:#2f72bd" data-el="water" aria-label="Voda">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.800" stroke-linecap="round"><path d="M3 9c2-2 3-2 5 0s3 2 5 0 3-2 5 0 2 1.500 3 .5"/><path d="M3 14c2-2 3-2 5 0s3 2 5 0 3-2 5 0 2 1.500 3 .5"/><circle cx="8" cy="19" r=".6" fill="#fff"/><circle cx="14" cy="19.500" r=".6" fill="#fff"/></svg>
-          </button>
-          <button class="node" style="--x:14%;--y:38.500%;--c:#1a9b4a" data-el="wood" aria-label="Dřevo">
-            <svg viewBox="0 0 24 24"><path fill="#fff" d="M11 3h2v18h-2z"/><path fill="#fff" d="M13 9c3 0 5-1.500 6-4-3 0-5.500 1.500-6 4zM11 14c-3 0-5-1.500-6-4 3 0 5.500 1.500 6 4z"/></svg>
-          </button>
+          <span class="mandala__orbit" aria-hidden="true"></span>
+
+          <div class="mandala__core" aria-hidden="true">
+            <span class="core is-active" data-el="wood"><span class="core__char" lang="zh-Hans">木</span><span class="core__name">Dřevo</span></span>
+            <span class="core" data-el="fire"><span class="core__char" lang="zh-Hans">火</span><span class="core__name">Oheň</span></span>
+            <span class="core" data-el="earth"><span class="core__char" lang="zh-Hans">土</span><span class="core__name">Země</span></span>
+            <span class="core" data-el="metal"><span class="core__char" lang="zh-Hans">金</span><span class="core__name">Kov</span></span>
+            <span class="core" data-el="water"><span class="core__char" lang="zh-Hans">水</span><span class="core__name">Voda</span></span>
+          </div>
+
+          <button class="orb" data-el="fire" style="--x:50%;--y:15%" aria-controls="el-fire" aria-pressed="false" aria-label="Oheň"><span class="orb__sphere"><span class="orb__char" lang="zh-Hans" aria-hidden="true">火</span></span><span class="orb__label" aria-hidden="true">Oheň</span></button>
+          <button class="orb" data-el="earth" style="--x:83.3%;--y:39.2%" aria-controls="el-earth" aria-pressed="false" aria-label="Země"><span class="orb__sphere"><span class="orb__char" lang="zh-Hans" aria-hidden="true">土</span></span><span class="orb__label" aria-hidden="true">Země</span></button>
+          <button class="orb" data-el="metal" style="--x:70.6%;--y:78.3%" aria-controls="el-metal" aria-pressed="false" aria-label="Kov"><span class="orb__sphere"><span class="orb__char" lang="zh-Hans" aria-hidden="true">金</span></span><span class="orb__label" aria-hidden="true">Kov</span></button>
+          <button class="orb" data-el="water" style="--x:29.4%;--y:78.3%" aria-controls="el-water" aria-pressed="false" aria-label="Voda"><span class="orb__sphere"><span class="orb__char" lang="zh-Hans" aria-hidden="true">水</span></span><span class="orb__label" aria-hidden="true">Voda</span></button>
+          <button class="orb is-active" data-el="wood" style="--x:16.7%;--y:39.2%" aria-controls="el-wood" aria-pressed="true" aria-label="Dřevo"><span class="orb__sphere"><span class="orb__char" lang="zh-Hans" aria-hidden="true">木</span></span><span class="orb__label" aria-hidden="true">Dřevo</span></button>
         </div>
+
+        <div class="el-panel glass reveal" id="elPanel" aria-live="polite">
+            <article class="el is-active" id="el-wood" data-el="wood">
+              <header class="el__head"><span class="el__char" lang="zh-Hans" aria-hidden="true">木</span><div><h3>Dřevo</h3><p class="el__sub">Jaro · východ</p></div></header>
+              <dl class="el__facts">
+                <div><dt>Orgány</dt><dd>játra a&nbsp;žlučník</dd></div>
+                <div><dt>Emoce</dt><dd>hněv</dd></div>
+                <div><dt>Chuť</dt><dd>kyselá</dd></div>
+                <div><dt>Barva</dt><dd>zelená</dd></div>
+              </dl>
+              <p class="el__flow"><b>Dřevo</b> živí oheň, samo je živeno vodou.</p>
+            </article>
+            <article class="el" id="el-fire" data-el="fire">
+              <header class="el__head"><span class="el__char" lang="zh-Hans" aria-hidden="true">火</span><div><h3>Oheň</h3><p class="el__sub">Léto · jih</p></div></header>
+              <dl class="el__facts">
+                <div><dt>Orgány</dt><dd>srdce a&nbsp;tenké střevo</dd></div>
+                <div><dt>Emoce</dt><dd>radost</dd></div>
+                <div><dt>Chuť</dt><dd>hořká</dd></div>
+                <div><dt>Barva</dt><dd>červená</dd></div>
+              </dl>
+              <p class="el__flow"><b>Oheň</b> živí zemi, sám je živen dřevem.</p>
+            </article>
+            <article class="el" id="el-earth" data-el="earth">
+              <header class="el__head"><span class="el__char" lang="zh-Hans" aria-hidden="true">土</span><div><h3>Země</h3><p class="el__sub">Pozdní léto · střed</p></div></header>
+              <dl class="el__facts">
+                <div><dt>Orgány</dt><dd>slezina a&nbsp;žaludek</dd></div>
+                <div><dt>Emoce</dt><dd>starosti</dd></div>
+                <div><dt>Chuť</dt><dd>sladká</dd></div>
+                <div><dt>Barva</dt><dd>žlutá</dd></div>
+              </dl>
+              <p class="el__flow"><b>Země</b> živí kov, sama je živena ohněm.</p>
+            </article>
+            <article class="el" id="el-metal" data-el="metal">
+              <header class="el__head"><span class="el__char" lang="zh-Hans" aria-hidden="true">金</span><div><h3>Kov</h3><p class="el__sub">Podzim · západ</p></div></header>
+              <dl class="el__facts">
+                <div><dt>Orgány</dt><dd>plíce a&nbsp;tlusté střevo</dd></div>
+                <div><dt>Emoce</dt><dd>smutek</dd></div>
+                <div><dt>Chuť</dt><dd>pálivá</dd></div>
+                <div><dt>Barva</dt><dd>bílá</dd></div>
+              </dl>
+              <p class="el__flow"><b>Kov</b> živí vodu, sám je živen zemí.</p>
+            </article>
+            <article class="el" id="el-water" data-el="water">
+              <header class="el__head"><span class="el__char" lang="zh-Hans" aria-hidden="true">水</span><div><h3>Voda</h3><p class="el__sub">Zima · sever</p></div></header>
+              <dl class="el__facts">
+                <div><dt>Orgány</dt><dd>ledviny a&nbsp;močový měchýř</dd></div>
+                <div><dt>Emoce</dt><dd>strach</dd></div>
+                <div><dt>Chuť</dt><dd>slaná</dd></div>
+                <div><dt>Barva</dt><dd>tmavě modrá</dd></div>
+              </dl>
+              <p class="el__flow"><b>Voda</b> živí dřevo, sama je živena kovem.</p>
+            </article>
+          </div>
       </div>
     </section>
 
-    <!-- KONTAKT -->
+    <!-- ============ KONTAKT ============ -->
     <section class="section contact" id="kontakt">
-      <div class="sparkles" aria-hidden="true"></div>
-      <div class="wrap contact__grid">
-        <div class="reveal">
-          <img class="contact__logo" src="img/logo-240.webp" alt="Logo TCM – květ života a lotos" width="120" height="120" loading="lazy">
-          <p class="eyebrow">Kontakt</p>
-          <h2>Objednejte se</h2>
-          <address class="addr">
-            <strong>Adriana Chylová</strong>
-            <span>Petřvald<br>Šenovská 2249,<br>naproti restauraci Petřvaldďanka</span>
-            <a class="addr__big" href="tel:+420601297499">601 297 499</a>
-            <a href="mailto:stastnoucestu@seznam.cz">stastnoucestu@seznam.cz</a>
-          </address>
-          <div class="hero__cta">
-            <a class="btn" href="tel:+420601297499">Zavolat</a>
-            <a class="btn btn--ghost" href="mailto:stastnoucestu@seznam.cz">Napsat e-mail</a>
-          </div>
-        </div>
+      <div class="fx-host" aria-hidden="true"><canvas id="contactFx"></canvas></div>
+      <div class="deco-bamboo deco-bamboo--left" aria-hidden="true"><img src="img/bamboo.svg" alt="" width="520" height="640" loading="lazy" data-parallax="-0.04"></div>
+      <div class="wrap">
+        <header class="contact__head">
+          <img class="contact__logo reveal" src="img/logo-240.webp" alt="Logo TCM" width="120" height="120" loading="lazy" decoding="async">
+          <p class="eyebrow reveal">Kontakt</p>
+          <h2 class="title split">Objednejte se</h2>
+          <div class="divider reveal" aria-hidden="true"><svg><use href="#lotus"/></svg></div>
+          <p class="lead reveal">Ozvěte se telefonicky nebo e-mailem a&nbsp;domluvíme termín.</p>
+        </header>
 
-        <div class="map reveal" id="map">
-          <div class="map__ph">
-            <p>Šenovská 2249, Petřvald</p>
-            <button class="btn btn--ghost" id="mapLoad" type="button">Zobrazit mapu</button>
-            <p class="map__links">
-              <a href="https://mapy.cz/zakladni?q=%C5%A0enovsk%C3%A1%202249%2C%20Pet%C5%99vald" target="_blank" rel="noopener">Otevřít v Mapy.cz</a> ·
-              <a href="https://www.google.com/maps/search/?api=1&query=%C5%A0enovsk%C3%A1%202249%2C%20Pet%C5%99vald" target="_blank" rel="noopener">Google Maps</a>
-            </p>
-            <small>Mapa se načte až po kliknutí – bez sledování návštěvníků.</small>
+        <div class="contact__grid">
+          <div class="contact__card glass reveal">
+            <address class="addr">
+              <strong class="addr__name">Adriana Chylová</strong>
+              <span class="addr__line"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg><span>Petřvald, Šenovská 2249<br><small>naproti restauraci Petřvaldďanka</small></span></span>
+              <a class="addr__phone" href="tel:+420601297499">601&nbsp;297&nbsp;499</a>
+              <a class="addr__mail" href="mailto:stastnoucestu@seznam.cz">stastnoucestu@seznam.cz</a>
+            </address>
+            <div class="contact__cta">
+              <a class="btn" href="tel:+420601297499"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>Zavolat</a>
+              <a class="btn btn--glass" href="mailto:stastnoucestu@seznam.cz"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg>Napsat e-mail</a>
+            </div>
+          </div>
+
+          <div class="map glass reveal" id="map">
+            <div class="map__ph">
+              <svg class="map__pin" aria-hidden="true"><use href="#i-pin"/></svg>
+              <p class="map__addr">Šenovská 2249, Petřvald</p>
+              <button class="btn btn--glass" id="mapLoad" type="button">Zobrazit mapu</button>
+              <p class="map__links">
+                <a href="https://mapy.cz/zakladni?q=%C5%A0enovsk%C3%A1%202249%2C%20Pet%C5%99vald" target="_blank" rel="noopener">Otevřít v&nbsp;Mapy.cz</a>
+                <span aria-hidden="true">·</span>
+                <a href="https://www.google.com/maps/search/?api=1&query=%C5%A0enovsk%C3%A1%202249%2C%20Pet%C5%99vald" target="_blank" rel="noopener">Google Maps</a>
+              </p>
+              <small>Mapa se načte až po kliknutí, bez sledování návštěvníků.</small>
+            </div>
           </div>
         </div>
       </div>
@@ -229,15 +463,16 @@
 
   <footer class="foot">
     <div class="wrap foot__in">
-      <img src="img/logo-240.webp" alt="" width="40" height="40" loading="lazy">
-      <p>© <span id="year">2025</span> Adriana Chylová · Tradiční čínská medicína Petřvald</p>
-      <p class="foot__note">Tradiční čínská medicína nenahrazuje lékařské vyšetření ani léčbu.</p>
+      <img src="img/logo-240.webp" alt="" width="44" height="44" loading="lazy">
+      <div>
+        <p class="foot__copy">© <span id="year">2025</span> Adriana Chylová · Tradiční čínská medicína Petřvald</p>
+        <p class="foot__note">Tradiční čínská medicína nenahrazuje lékařské vyšetření ani léčbu.</p>
+      </div>
+      <span class="foot__url">www.adritcm.cz</span>
     </div>
   </footer>
 
-  <a class="fab" href="tel:+420601297499" aria-label="Zavolat 601 297 499">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.600 10.800a15 15 0 0 0 6.600 6.600l2.200-2.200a1 1 0 0 1 1-.25 11 11 0 0 0 3.500.56 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.500a1 1 0 0 1 1 1c0 1.200.2 2.400.56 3.500a1 1 0 0 1-.25 1z"/></svg>
-  </a>
+  <a class="fab" href="tel:+420601297499" aria-label="Zavolat 601 297 499"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg></a>
 
   <script src="js/main.js" defer></script>
 </body>

@@ -4,20 +4,26 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tradiční čínská medicína Petřvald | Adriana Chylová</title>
-  <meta name="description" content="Tradiční čínská medicína v Petřvaldu: akupunktura, moxování, baňkování, masáže, dietetika a diagnostika. Adriana Chylová, Šenovská 2249, tel. 601 297 499.">
-  <meta name="theme-color" content="#401c5e">
+  <meta name="description" content="Tradiční čínská medicína v Petřvaldu: tuina, akupresura a baňkování. Od bolesti k rovnováze. Adriana Chylová, Šenovská 2249, tel. 601 297 499.">
+  <meta name="theme-color" content="#08123a">
   <link rel="canonical" href="https://adritcm.cz/">
-  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon.ico" sizes="48x48">
+  <link rel="icon" href="img/icon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="img/icon-180.png">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="cs_CZ">
-  <meta property="og:title" content="Tradiční čínská medicína – Cesta od bolesti ke zdraví">
-  <meta property="og:description" content="Akupunktura, moxování, baňkování, masáže, dietetika a diagnostika v Petřvaldu.">
+  <meta property="og:title" content="Tradiční čínská medicína – Od bolesti k rovnováze">
+  <meta property="og:description" content="Tuina, akupresura a baňkování v Petřvaldu. Adriana Chylová, tel. 601 297 499.">
   <meta property="og:url" content="https://adritcm.cz/">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://adritcm.cz/img/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
 
-  <link rel="preload" href="fonts/cormorant-garamond-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="fonts/source-sans-3-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/playwrite-cz-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/cinzel-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="img/portrait.webp" as="image" media="(min-width: 861px)">
   <link rel="stylesheet" href="css/style.css">
 
   <script type="application/ld+json">
@@ -26,7 +32,9 @@
     "@type": "HealthAndBeautyBusiness",
     "name": "Adriana Chylová – Tradiční čínská medicína",
     "url": "https://adritcm.cz/",
-    "slogan": "Cesta od bolesti ke zdraví",
+    "image": "https://adritcm.cz/img/og.jpg",
+    "logo": "https://adritcm.cz/img/icon-192.png",
+    "slogan": "Od bolesti k rovnováze",
     "telephone": "+420601297499",
     "email": "stastnoucestu@seznam.cz",
     "address": {
@@ -40,23 +48,33 @@
       "@type": "OfferCatalog",
       "name": "Služby",
       "itemListElement": [
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Akupunktura" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Moxování" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Baňkování" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Masáže" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Dietetika" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Diagnostika" } }
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tuina" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Akupresura" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Baňkování" } }
       ]
     }
   }
   </script>
 </head>
 <body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="lotus" viewBox="0 0 100 70">
+      <g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round">
+        <path d="M50 6C41 22 41 40 50 56C59 40 59 22 50 6Z"/>
+        <path d="M50 56C34 53 23 42 19 26C34 28 45 38 50 56Z"/>
+        <path d="M50 56C66 53 77 42 81 26C66 28 55 38 50 56Z"/>
+        <path d="M50 56C27 59 12 52 5 40C22 38 40 43 50 56Z"/>
+        <path d="M50 56C73 59 88 52 95 40C78 38 60 43 50 56Z"/>
+        <path d="M30 63H70"/>
+      </g>
+    </symbol>
+  </svg>
+
   <a class="skip" href="#obsah">Přeskočit na obsah</a>
 
   <header class="nav" id="nav">
     <a class="nav__brand" href="#top" aria-label="Adriana Chylová – úvod">
-      <span class="flower flower--sm" aria-hidden="true"></span>
+      <img src="img/logo-240.webp" alt="" width="44" height="44">
       <span>Adriana Chylová</span>
     </a>
     <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">
@@ -73,14 +91,16 @@
   <main id="obsah">
     <!-- HERO -->
     <section class="hero" id="top">
-      <img class="hero__photo" src="img/adriana.jpg" alt="Adriana Chylová" width="1200" height="900" fetchpriority="high" onerror="this.remove()">
-      <div class="hero__shade" aria-hidden="true"></div>
+      <div class="hero__bg" aria-hidden="true"><div class="hero__flower"></div></div>
+      <img class="hero__photo" src="img/portrait.webp" alt="Adriana Chylová" width="1200" height="1116" fetchpriority="high">
+      <div class="sparkles" aria-hidden="true"></div>
       <div class="hero__inner">
-        <div class="flower flower--hero" aria-hidden="true"></div>
         <div class="hero__text">
           <p class="eyebrow">Petřvald · Adriana Chylová</p>
           <h1>Tradiční čínská medicína</h1>
-          <p class="hero__tag">Cesta od bolesti ke zdraví</p>
+          <div class="divider" aria-hidden="true"><svg><use href="#lotus"/></svg></div>
+          <p class="hero__motto">Od bolesti k rovnováze</p>
+          <p class="hero__tags">Tuina <i aria-hidden="true">•</i> akupresura <i aria-hidden="true">•</i> baňkování</p>
           <div class="hero__cta">
             <a class="btn" href="tel:+420601297499">Objednat se telefonicky</a>
             <a class="btn btn--ghost" href="#kontakt">Kde mě najdete</a>
@@ -94,52 +114,49 @@
     <section class="section" id="sluzby">
       <div class="wrap">
         <header class="section__head reveal">
-          <p class="eyebrow eyebrow--dark">Co nabízím</p>
+          <p class="eyebrow">Co nabízím</p>
           <h2>Služby</h2>
-          <p class="lead">Staletími prověřené metody, které se dívají na člověka jako na celek – tělo, dech i emoce.</p>
+          <div class="divider divider--left" aria-hidden="true"><svg><use href="#lotus"/></svg></div>
+          <p class="lead">Staletími prověřené metody, které se dívají na člověka jako na celek: tělo, dech i emoce.</p>
         </header>
 
         <ul class="cards">
           <li class="card reveal">
-            <span class="card__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2v12M12 14l-2.500 3M12 14l2.500 3M8 20h8" /></svg></span>
-            <h3>Akupunktura</h3>
-            <p>Zavedení tenkých jehel do vybraných bodů na těle. Jedna z hlavních a nejznámějších metod TČM.</p>
+            <span class="card__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 14c2-4 4-6 6-6s2 2 4 2 4-3 6-4"/><path d="M4 19c3-3 6-4 9-4s5 1 7 3"/><circle cx="19" cy="5.500" r="1.200"/></svg></span>
+            <h3>Tuina</h3>
+            <p>Čínská terapeutická masáž. Tlaky, hmaty a protahování uvolňují napětí v těle a podporují jeho přirozenou rovnováhu.</p>
           </li>
           <li class="card reveal">
-            <span class="card__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3c1 3 4 4.500 4 8a4 4 0 0 1-8 0c0-1.500.7-2.600 1.500-3.500.2 1 .7 1.600 1.300 2C11 8.500 11 5.500 12 3z"/><path d="M6 21h12"/></svg></span>
-            <h3>Moxování</h3>
-            <p>Příjemné prohřívání akupunkturních bodů pomocí hořícího pelyňku (moxy).</p>
+            <span class="card__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.200"/><circle cx="12" cy="12" r="5.500"/><circle cx="12" cy="12" r="9"/></svg></span>
+            <h3>Akupresura</h3>
+            <p>Tlak prsty na akupunkturní body, bez jehel. Šetrná metoda, která uvolňuje napětí a pomáhá tělu načerpat sílu.</p>
           </li>
           <li class="card reveal">
             <span class="card__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 9h14l-1 6a6 6 0 0 1-12 0z"/><path d="M8 5.500h8"/></svg></span>
             <h3>Baňkování</h3>
             <p>Přiložení skleněných baněk na kůži. Podtlak uvolňuje svalové napětí a prokrvuje tkáně.</p>
           </li>
-          <li class="card reveal">
-            <span class="card__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 15c2-4 4-6 6-6s2 2 4 2 4-3 6-4"/><path d="M4 20c3-3 6-4 9-4s5 1 7 3"/></svg></span>
-            <h3>Masáže</h3>
-            <p>Masážní techniky vycházející z principů tradiční čínské medicíny – uvolnění těla a podpora jeho rovnováhy.</p>
-          </li>
-          <li class="card reveal">
-            <span class="card__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21V11"/><path d="M12 11c0-4 3-6 7-6 0 4-3 6-7 6z"/><path d="M12 15c0-3-2.500-5-6-5 0 3 2.500 5 6 5z"/></svg></span>
-            <h3>Dietetika</h3>
-            <p>Výživa podle TČM – jídlo vybrané podle ročního období, typu konstituce a aktuálního stavu.</p>
-          </li>
-          <li class="card reveal">
-            <span class="card__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></span>
-            <h3>Diagnostika</h3>
-            <p>Důkladný rozhovor, vyšetření jazyka a pulzu. Základ, ze kterého vychází celý další postup.</p>
-          </li>
         </ul>
+
+        <div class="extras reveal">
+          <h3>Doplňkově</h3>
+          <ul>
+            <li><strong>Moxování</strong> <span>prohřívání bodů pelyňkem</span></li>
+            <li><strong>Dietetika</strong> <span>výživa podle TČM</span></li>
+            <li><strong>Diagnostika</strong> <span>rozhovor, jazyk, pulz</span></li>
+          </ul>
+        </div>
       </div>
     </section>
 
     <!-- PĚT ELEMENTŮ -->
-    <section class="section section--tint" id="elementy">
+    <section class="section section--deep" id="elementy">
+      <div class="sparkles" aria-hidden="true"></div>
       <div class="wrap elements">
         <header class="section__head reveal">
-          <p class="eyebrow eyebrow--dark">Filozofie</p>
+          <p class="eyebrow">Filozofie</p>
           <h2>Pět elementů</h2>
+          <div class="divider divider--left" aria-hidden="true"><svg><use href="#lotus"/></svg></div>
           <p class="lead">Dřevo, oheň, země, kov a voda se v nekonečném cyklu vzájemně podporují. Stejně tak fungují orgány a dráhy v našem těle.</p>
           <div class="el-panel" id="elPanel" aria-live="polite">
             <h3 id="elTitle">Vyberte element</h3>
@@ -151,10 +168,10 @@
           <svg class="wheel__arrows" viewBox="0 0 100 100" aria-hidden="true">
             <defs>
               <marker id="ah" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-                <path d="M0 0L10 5L0 10z" fill="#9a8fa6"/>
+                <path d="M0 0L10 5L0 10z" fill="#a9b0ee"/>
               </marker>
             </defs>
-            <g fill="none" stroke="#9a8fa6" stroke-width=".7" marker-end="url(#ah)" id="arcs"></g>
+            <g fill="none" stroke="#a9b0ee" stroke-width=".6" stroke-opacity=".8" marker-end="url(#ah)" id="arcs"></g>
           </svg>
           <button class="node" style="--x:50%;--y:12%;--c:#e8602c" data-el="fire" aria-label="Oheň">
             <svg viewBox="0 0 24 24"><path fill="#fff" d="M12 2c1 3.500 5.500 5.800 5.500 10.500a5.500 5.500 0 0 1-11 0c0-2.200 1-3.600 2.300-4.800.2 1.400 1 2.300 1.900 2.800C10.500 8.300 10.800 4.500 12 2z"/></svg>
@@ -162,13 +179,13 @@
           <button class="node" style="--x:86%;--y:38.500%;--c:#f2b705" data-el="earth" aria-label="Země">
             <svg viewBox="0 0 24 24"><path fill="#fff" d="M2 18c3-6 5-7 8-4 2-5 4-7 7-4 2 1.500 3.500 3 5 7v3H2z"/></svg>
           </button>
-          <button class="node" style="--x:72.500%;--y:81%;--c:#6b6259" data-el="metal" aria-label="Kov">
+          <button class="node" style="--x:72.500%;--y:81%;--c:#8c8579" data-el="metal" aria-label="Kov">
             <svg viewBox="0 0 24 24"><path fill="#fff" d="M12 2l8 3v6c0 5-3.500 9-8 11z"/><path fill="none" stroke="#fff" stroke-width="1.600" d="M12 2L4 5v6c0 5 3.500 9 8 11"/></svg>
           </button>
-          <button class="node" style="--x:27.500%;--y:81%;--c:#2866a8" data-el="water" aria-label="Voda">
+          <button class="node" style="--x:27.500%;--y:81%;--c:#2f72bd" data-el="water" aria-label="Voda">
             <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.800" stroke-linecap="round"><path d="M3 9c2-2 3-2 5 0s3 2 5 0 3-2 5 0 2 1.500 3 .5"/><path d="M3 14c2-2 3-2 5 0s3 2 5 0 3-2 5 0 2 1.500 3 .5"/><circle cx="8" cy="19" r=".6" fill="#fff"/><circle cx="14" cy="19.500" r=".6" fill="#fff"/></svg>
           </button>
-          <button class="node" style="--x:14%;--y:38.500%;--c:#0f8a3c" data-el="wood" aria-label="Dřevo">
+          <button class="node" style="--x:14%;--y:38.500%;--c:#1a9b4a" data-el="wood" aria-label="Dřevo">
             <svg viewBox="0 0 24 24"><path fill="#fff" d="M11 3h2v18h-2z"/><path fill="#fff" d="M13 9c3 0 5-1.500 6-4-3 0-5.500 1.500-6 4zM11 14c-3 0-5-1.500-6-4 3 0 5.500 1.500 6 4z"/></svg>
           </button>
         </div>
@@ -176,11 +193,11 @@
     </section>
 
     <!-- KONTAKT -->
-    <section class="section section--dark contact" id="kontakt">
-      <img class="contact__photo" src="img/caj.jpg" alt="" width="1200" height="800" loading="lazy" onerror="this.remove()">
-      <div class="contact__shade" aria-hidden="true"></div>
+    <section class="section contact" id="kontakt">
+      <div class="sparkles" aria-hidden="true"></div>
       <div class="wrap contact__grid">
         <div class="reveal">
+          <img class="contact__logo" src="img/logo-240.webp" alt="Logo TCM – květ života a lotos" width="120" height="120" loading="lazy">
           <p class="eyebrow">Kontakt</p>
           <h2>Objednejte se</h2>
           <address class="addr">
@@ -212,7 +229,7 @@
 
   <footer class="foot">
     <div class="wrap foot__in">
-      <span class="flower flower--sm" aria-hidden="true"></span>
+      <img src="img/logo-240.webp" alt="" width="40" height="40" loading="lazy">
       <p>© <span id="year">2025</span> Adriana Chylová · Tradiční čínská medicína Petřvald</p>
       <p class="foot__note">Tradiční čínská medicína nenahrazuje lékařské vyšetření ani léčbu.</p>
     </div>

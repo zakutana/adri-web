@@ -25,3 +25,9 @@
   RewriteCond %{HTTPS} off
   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 </IfModule>
+
+AddType image/webp .webp
+<IfModule mod_expires.c>
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/x-icon "access plus 1 month"
+</IfModule>

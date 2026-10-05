@@ -40,13 +40,27 @@
     items.forEach(function (el) { el.classList.add('is-in'); });
   }
 
+  /* sparkles: little fireflies, pure decoration */
+  d.querySelectorAll('.sparkles').forEach(function (box) {
+    var n = window.innerWidth < 700 ? 14 : 26;
+    for (var k = 0; k < n; k++) {
+      var s = d.createElement('i');
+      s.style.left = (Math.random() * 100).toFixed(1) + '%';
+      s.style.top = (Math.random() * 100).toFixed(1) + '%';
+      s.style.setProperty('--s', (1.5 + Math.random() * 2.5).toFixed(1) + 'px');
+      s.style.setProperty('--t', (4 + Math.random() * 6).toFixed(1) + 's');
+      s.style.setProperty('--dl', (-Math.random() * 8).toFixed(1) + 's');
+      box.appendChild(s);
+    }
+  });
+
   /* five elements wheel */
   var DATA = {
     fire:  { name: 'Oheň',  color: '#e8602c', text: 'Léto. Orgány: srdce a tenké střevo. Rozkvět, radost a pohyb – energie na vrcholu.' },
-    earth: { name: 'Země',  color: '#c99700', text: 'Pozdní léto. Orgány: slezina a žaludek. Střed, který živí – trávení, výživa a stabilita.' },
-    metal: { name: 'Kov',   color: '#6b6259', text: 'Podzim. Orgány: plíce a tlusté střevo. Dýchání, uvolňování a očista od toho, co už nepotřebujeme.' },
-    water: { name: 'Voda',  color: '#2866a8', text: 'Zima. Orgány: ledviny a močový měchýř. Hluboké zdroje energie, odpočinek a regenerace.' },
-    wood:  { name: 'Dřevo', color: '#0f8a3c', text: 'Jaro. Orgány: játra a žlučník. Růst, plynulý tok energie a schopnost se přizpůsobit.' }
+    earth: { name: 'Země',  color: '#f2b705', text: 'Pozdní léto. Orgány: slezina a žaludek. Střed, který živí – trávení, výživa a stabilita.' },
+    metal: { name: 'Kov',   color: '#8c8579', text: 'Podzim. Orgány: plíce a tlusté střevo. Dýchání, uvolňování a očista od toho, co už nepotřebujeme.' },
+    water: { name: 'Voda',  color: '#2f72bd', text: 'Zima. Orgány: ledviny a močový měchýř. Hluboké zdroje energie, odpočinek a regenerace.' },
+    wood:  { name: 'Dřevo', color: '#1a9b4a', text: 'Jaro. Orgány: játra a žlučník. Růst, plynulý tok energie a schopnost se přizpůsobit.' }
   };
   var panel = d.getElementById('elPanel');
   var title = d.getElementById('elTitle');

@@ -1,18 +1,17 @@
 # adritcm.cz – Adriana Chylová, tradiční čínská medicína
 
-Statický web (HTML + CSS + JS), bez build kroku a bez externích služeb. Stačí nahrát obsah složky na hosting (WEDOS) přes FTP.
+Statický web (HTML + CSS + JS), bez build kroku a bez externích služeb (fonty jsou ve složce `fonts/`). Stačí nahrát obsah složky na hosting (WEDOS) přes FTP.
 
-## Fotky (zatím chybí – web funguje i bez nich)
-Vložte do složky `img/`:
+## Obrázky (`img/`)
+- `portrait.webp` – portrét z banneru (úvodní sekce)
+- `logo-240.webp`, `logo-720.webp` – kulaté TCM logo (menu, kontakt, patička)
+- `icon-180.png`, `icon-192.png`, `../favicon.ico` – ikony
+- `og.jpg` – náhled při sdílení na sociálních sítích (1200×630)
+- `flower.svg` – květ života (dekorace)
 
-| Soubor | Kde se použije | Doporučení |
-|---|---|---|
-| `adriana.jpg` | pozadí úvodní sekce (fialově podbarvené) | min. 1600 px široká, portrét vpravo |
-| `caj.jpg` | pozadí sekce Kontakt (čaj, vějíř) | min. 1600 px široká |
-
-Před nahráním fotky zmenšete (cca 200–300 kB), např. na squoosh.app.
+Portrét je vyříznutý z banneru, takže je mírně měkký. S původní fotkou v plné velikosti bude web ostřejší: stačí přepsat `img/portrait.webp`.
 
 ## Co upravit
-- Texty služeb: `index.html`, sekce `#sluzby`
+- Služby: `index.html`, sekce `#sluzby` (hlavní: tuina, akupresura, baňkování; doplňkově: moxování, dietetika, diagnostika)
 - Texty k elementům: `js/main.js`, objekt `DATA`
 - Chybí: otevírací doba, ceník, PSČ (doplnit do JSON-LD v `index.html`)

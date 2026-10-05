@@ -8,7 +8,7 @@ Statický web (HTML + CSS + JS), bez build kroku a bez externích služeb: fonty
 ## Obrázky (`img/`)
 | Soubor | Použití |
 |---|---|
-| `cover-900/1500/2400.webp` | cover v úvodu (z původního banneru, tři velikosti pro různé displeje) |
+| `cover-900/1500/3000.webp` | cover v úvodu (z původního banneru, tři velikosti; největší je zvětšená neuronovou sítí) |
 | `logo-240/480.webp` | kulaté TCM logo (menu, profil, kontakt, patička) |
 | `bamboo.svg` | dekorace (bambusové siluety) |
 | `og.jpg` | náhled při sdílení odkazu na sociálních sítích (1200×630) |

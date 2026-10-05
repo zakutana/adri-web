@@ -9,13 +9,13 @@ Statický web (HTML + CSS + JS), bez build kroku a bez externích služeb: fonty
 | Soubor | Použití |
 |---|---|
 | `cover-900/1500/2400.webp` | cover v úvodu (z původního banneru, tři velikosti pro různé displeje) |
-| `portrait.webp` | portrét v sekci O TČM (vyříznutý z banneru, bez textu) |
 | `logo-240/480.webp` | kulaté TCM logo (menu, profil, kontakt, patička) |
 | `bamboo.svg` | dekorace (bambusové siluety) |
 | `og.jpg` | náhled při sdílení odkazu na sociálních sítích (1200×630) |
 | `icon-180/192.png`, `../favicon.ico` | ikony |
 
-Banner i portrét jsou z jednoho banneru o šířce 1500 px. S původním souborem fotky ve vyšším rozlišení bude web ostřejší. Stačí přepsat `portrait.webp` a `cover-*.webp`.
+
+Cover je z banneru o šířce 1500 px. S původním souborem ve vyšším rozlišení bude web ostřejší: stačí přepsat `cover-*.webp`. Její fotka je na webu jen jednou, v úvodu.
 
 ## Co upravit
 - Texty služeb: `index.html`, sekce `#sluzby`

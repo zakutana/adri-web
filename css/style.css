@@ -263,8 +263,10 @@ button{font:inherit}
 .five__head{grid-area:head;margin-bottom:0}
 .five__grid .mandala{grid-area:mandala;align-self:center}
 .el-panel{grid-area:panel;align-self:start;padding:clamp(1.4rem,2.6vw,2.1rem);min-height:300px}
-.js .el:not(.is-active){display:none}
-.el.is-active{animation:panelIn .7s var(--ease) both}
+/* all five texts share one grid cell, so the card keeps the height of the tallest one and nothing below or beside it moves */
+.js .el-panel{display:grid}
+.js .el{grid-area:1/1;visibility:hidden;opacity:0;transition:opacity .35s var(--ease),visibility 0s .35s}
+.js .el.is-active{visibility:visible;opacity:1;transition:opacity .5s var(--ease) .1s,visibility 0s;animation:panelIn .7s var(--ease) both}
 .el::before{content:"";display:block;width:56px;height:3px;border-radius:3px;margin-bottom:1.3rem;background:var(--ec);box-shadow:0 0 18px var(--ec)}
 .el+.el{margin-top:2rem}
 .js .el+.el{margin-top:0}

@@ -1,6 +1,6 @@
 # adritcm.cz – Adriana Chylová, tradiční čínská medicína
 
-Statický web (HTML + CSS + JS), bez build kroku a bez externích služeb: fonty i obrázky jsou ve složce. Stačí nahrát obsah složky na hosting (WEDOS) přes FTP. Mapa se načte z Googlu až po kliknutí.
+Statický web (HTML + CSS + JS), bez build kroku a bez externích služeb: fonty i obrázky jsou ve složce. Běží na **GitHub Pages** (soubor `CNAME` = `adritcm.cz`, `.nojekyll`, vlastní `404.html`); stačí změny nahrát do větve, ze které Pages publikují. Mapa se načte z Googlu až po kliknutí.
 
 ## Jak web začíná
 Úvod kopíruje Facebook stránku: celý cover (banner), kulaté logo přes jeho okraj, jméno a tlačítka (telefon, e-mail, adresa). Pod tím následují sekce O TČM, Služby, Pět elementů a Kontakt.
@@ -24,5 +24,5 @@ Cover je z banneru o šířce 1500 px. S původním souborem ve vyšším rozli�
 
 ## Poznámky
 - Písma: Cinzel, Cormorant Garamond, Source Sans 3, Playwrite CZ a malá podmnožina Ma Shan Zheng pro čínské znaky (木火土金水…), vše ve `fonts/`.
-- `.htaccess` nastavuje HTTPS, kompresi, cache a bezpečnostní hlavičky (včetně CSP).
+- HTTPS a kompresi zajišťuje GitHub Pages (v nastavení Pages zapnout Enforce HTTPS). Při přesunu na Apache hosting (WEDOS apod.) je v historii gitu soubor `.htaccess`.
 - Animace respektují nastavení „omezit pohyb“ v systému.
